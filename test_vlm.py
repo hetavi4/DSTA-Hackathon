@@ -14,11 +14,8 @@ load_dotenv()
 TEAM_NAME = os.getenv("TEAM_NAME")
 TEAM_TRACK = os.getenv("TEAM_TRACK")
 
-
 def main():
-    # input_dir = Path(f"/home/jupyter/{TEAM_TRACK}")
     input_dir = Path(f"../../data/{TEAM_TRACK}/train")
-    # results_dir = Path(f"/home/jupyter/{TEAM_NAME}")
     results_dir = Path("results")
 
     results_dir.mkdir(parents=True, exist_ok=True)
@@ -62,7 +59,6 @@ def main():
     )
     print(f"IoU@0.5: {eval_result}")
 
-
 def run_batched(
     instances: List[Dict[str, str | int]], batch_size: int = 4
 ) -> List[Dict[str, str | int]]:
@@ -92,7 +88,6 @@ def run_batched(
             ]
         )
     return results
-
 
 if __name__ == "__main__":
     main()
