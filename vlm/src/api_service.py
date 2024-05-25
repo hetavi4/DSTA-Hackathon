@@ -1,18 +1,14 @@
 import base64
 from fastapi import FastAPI, Request
-
 from VLMManager import VLMManager
-
 
 app = FastAPI()
 
 vlm_manager = VLMManager()
 
-
 @app.get("/health")
 def health():
     return {"message": "health ok"}
-
 
 @app.post("/identify")
 async def identify(instance: Request):
